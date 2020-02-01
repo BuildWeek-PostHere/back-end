@@ -4,6 +4,7 @@ const db = require('../database/dbConfig.js');
 // export methods 
 module.exports = {
     find,
+    findBy,
     findById,
     add
 }
@@ -27,4 +28,9 @@ function add(user){
             const [id] = ids;
             return findById(id);
         })
+}
+
+// findBy method implementation
+function findBy(username){
+    return db('users').where(username);
 }

@@ -24,3 +24,5 @@ This documentation will cover all of the data models and endpoints which can be 
 | Request Type  |	Endpoints                   |	        Description     |
 | ------------  |  --------------               |       ------------------  | 
 | GET	        |    /api/auth/users	        |   Returns All Users       |
+| GET           |    /api/auth/users/:id        |   Returns Specific User   |
+| DELETE        |    /api/auth/users/:id        |   Deletes  Specific User  |

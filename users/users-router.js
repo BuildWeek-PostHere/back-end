@@ -7,8 +7,11 @@ const router = express.Router();
 // import users model
 const Users = require('./users-model.js');
 
+// import restricted middleware
+const restricted = require('../auth/restricted-middleware.js');
+
 // end point to get all users
-router.get('/', (req, res) => {
+router.get('/', restricted, (req, res) => {
     Users.find()
         .then(users =>{
             res.json(users);

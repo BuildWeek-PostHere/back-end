@@ -6,7 +6,8 @@ module.exports = {
     find,
     findBy,
     findById,
-    add
+    add,
+    remove
 }
 
 // find method implementation
@@ -31,6 +32,11 @@ function add(user){
 }
 
 // findBy method implementation
-function findBy(username){
-    return db('users').where(username);
+function findBy(user){
+    return db('users').select('id', 'username', 'password').where(user);
+}
+
+// remove method implementation
+function remove(id){
+    return db('users').where("id", id).del();
 }

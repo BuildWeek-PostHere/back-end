@@ -4,9 +4,6 @@ const router = require('express').Router();
 // import users model
 const Post = require('./post-model.js');
 
-// import restricted middleware
-const restricted = require('../auth/restricted-middleware.js');
-
 // create new post
 router.post('/', (req, res) =>{
 

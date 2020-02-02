@@ -4,7 +4,8 @@ const db = require('../database/dbConfig.js');
 // export post methods
 module.exports = {
     add,
-    findById
+    findById,
+    find
 }
 
 // add implementation
@@ -22,4 +23,9 @@ function findById(id){
     return db('posts')
         .select('id', 'post_body', 'title', 'best_place')
         .orderBy('id').where({id}).first(); 
+}
+
+// find method implementation
+function find(){
+    return db('posts');
 }

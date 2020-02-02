@@ -27,4 +27,16 @@ router.post('/', (req, res) =>{
         })
 })
 
+// get all posts
+router.get('/', (req, res) =>{
+    Post.find()
+        .then(post =>{
+            res.status(200).json(post)
+        })
+        .catch(err =>{
+            console.log(err);
+            res.status(500).json({ errorMessage: 'Error while getting post on the server side!'})
+        })
+})
+
 module.exports = router;

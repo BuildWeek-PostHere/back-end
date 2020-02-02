@@ -35,8 +35,27 @@ router.get('/', (req, res) =>{
         })
         .catch(err =>{
             console.log(err);
-            res.status(500).json({ errorMessage: 'Error while getting post on the server side!'})
+            res.status(500).json({ errorMessage: 'Error while getting posts on the server side!'})
         })
 })
 
+// gettign post by its id
+router.get('/:id', (req, res) =>{
+    Post.findById(req.params.id)
+        .then(post =>{
+            // checking if the post exist
+            if (post){
+                // send the post back
+                res.json(post);
+            }
+            else{
+                // return http status code Not Found and error message
+                res.status(404).json({ errorMessage: 'Post with such id does not exist!'});
+            }
+        })
+        .catch(err =>{
+            console.log(err);
+            res.status(500).json({ errorMessage: 'Error while getting post on the server side!'})
+        })
+})
 module.exports = router;

@@ -7,6 +7,7 @@ module.exports = {
     findById,
     find,
     findPost,
+    update,
     remove
 }
 
@@ -44,8 +45,15 @@ function findPost(id) {
       .where({ 'users.id': id });
   }
 
+
+  // update method inplementation
+  function update(changes, id) {
+    return db("posts")
+      .where({ id })
+      .update(changes);
+  }
+
   // remove method implementation
   function remove(id){
     return db('posts').where({id}).del();
-
   }

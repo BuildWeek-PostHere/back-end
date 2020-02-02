@@ -94,4 +94,32 @@ router.delete('/:id', (req, res) =>{
             res.status(500).json({ errorMessage: 'Error while getting post on the server side!'})
         })
 })
+
+// update post 
+router.put("/:id", (req, res) => {
+    // distructuring id from params
+    const { id } = req.params;
+    // distructuring all from the body
+    const { title, post_body, best_place, user_id } = req.body;
+    
+    // assigning everything to changes
+    const changes = { id, post_body, title, best_place, user_id };
+  
+    Post.findById(req.params.id)
+      .then(post => {
+          // checking for post first
+        if (post) {
+          Post.update(changes, req.params.id)
+            .then(response => {
+                res.status(200).json({ message: "Post has been updated!", response });
+          });
+        } else {
+          res.status(404).json({ message: "Can not find post!" });
+        }
+      })
+      .catch(err => {
+          console.log(err);
+        res.status(500).json({ message: 'Could not update post, server side error' });
+      });
+  });
 module.exports = router;

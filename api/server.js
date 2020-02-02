@@ -25,11 +25,18 @@ const usersRouter = require('../users/users-router.js');
 // import auth router
 const authRouter = require('../auth/auth-router.js');
 
+// import post router
+const postRouter = require('../reddit_post/post-router.js');
+
 // endpoint for users
 server.use('/api/users', usersRouter);
 
 // endpoint for auth
 server.use('/api/auth', authRouter);
+
+// endpoint for posts
+server.use('/api/posts', postRouter);
+
 
 server.get('/', (req, res) =>{
     res.send("Hello my React friends from the server!");

@@ -23,6 +23,22 @@ This documentation will cover all of the data models and endpoints which can be 
 
 | Request Type  |	Endpoints                 |	        Description       |
 | ------------  |  --------------             |       ------------------  | 
-| GET	        |    /api/auth/users	      |   Returns All Users       |
-| GET           |    /api/auth/users/:id      |   Returns Specific User   |
-| DELETE        |    /api/auth/users/:id      |   Deletes  Specific User  |
+| GET	        |    /api/users	              |   Returns All Users       |
+| GET           |    /api/users/:id           |   Returns Specific User   |
+| DELETE        |    /api/users/:id           |   Deletes  Specific User  |
+
+# Post
+
+| Request Type  |	Endpoints              |	        Description           |
+| ------------  |  --------------          |       ------------------         | 
+| GET	        |   /api/posts	           |   Returns All Posts              |
+| GET           |   /api/posts/:id         |   Returns Specific Post          |
+| DELETE        |   /api/posts/:id         |   Deletes  Specific Post         |
+| GET           |   /api/posts/:id/user    |   Returns Specific User's Post   |
+| POST          |   /api/posts             |   Creates a post                 |
+| PUT           |   /api/posts/:id         |   Updates a post                 |
+| DELETE        |   /api/posts/:id         |   Deletes a post                 |
+
+
+
+

@@ -77,4 +77,21 @@ router.get('/:id/user', (req, res) =>{
             res.status(500).json({ errorMessage: 'Error while getting post on the server side!'})
         })
 })
+
+// delete a post
+router.delete('/:id', (req, res) =>{
+    Post.remove(req.params.id)
+        .then(response =>{
+            if(response){
+                res.status(200).json({ message: 'Post has been deleted'});
+            }
+            else{
+                res.status(404).json({ errorMessage: 'Post does not exist!'})
+            }
+        })
+        .catch(err =>{
+            console.log(err);
+            res.status(500).json({ errorMessage: 'Error while getting post on the server side!'})
+        })
+})
 module.exports = router;

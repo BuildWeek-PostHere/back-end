@@ -6,7 +6,8 @@ module.exports = {
     add,
     findById,
     find,
-    findPost
+    findPost,
+    remove
 }
 
 // add implementation
@@ -41,4 +42,10 @@ function findPost(id) {
       })
       .orderBy('posts.id')
       .where({ 'users.id': id });
+  }
+
+  // remove method implementation
+  function remove(id){
+    return db('posts').where({id}).del();
+
   }

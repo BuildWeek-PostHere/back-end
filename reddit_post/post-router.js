@@ -58,4 +58,23 @@ router.get('/:id', (req, res) =>{
             res.status(500).json({ errorMessage: 'Error while getting post on the server side!'})
         })
 })
+
+// get user related post
+router.get('/:id/user', (req, res) =>{
+    Post.findPost(req.params.id)
+        .then(post =>{
+            // checking if user has any post
+            if(post.length > 0){
+                res.status(200).json(post)
+            }
+            else{
+                 // return http status code Not Found and error message
+                res.status(404).json({ errorMessage: 'There is no post!'})
+            }
+        })
+        .catch(err =>{
+            console.log(err);
+            res.status(500).json({ errorMessage: 'Error while getting post on the server side!'})
+        })
+})
 module.exports = router;

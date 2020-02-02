@@ -5,7 +5,8 @@ const db = require('../database/dbConfig.js');
 module.exports = {
     add,
     findById,
-    find
+    find,
+    findPost
 }
 
 // add implementation
@@ -29,3 +30,15 @@ function findById(id){
 function find(){
     return db('posts');
 }
+
+// find post method implementation
+function findPost(id) {
+    return db('posts')
+      .select('posts.id','posts.post_body','posts.title','posts.best_place','posts.user_id', 'users.username'
+      )
+      .join('users', function() {
+        this.on({ 'users.id': 'posts.user_id' });
+      })
+      .orderBy('posts.id')
+      .where({ 'users.id': id });
+  }

@@ -33,7 +33,6 @@ This documentation will cover all of the data models and endpoints which can be 
 | ------------  |  --------------          |       ------------------         | 
 | GET	        |   /api/posts	           |   Returns All Posts              |
 | GET           |   /api/posts/:id         |   Returns Specific Post          |
-| DELETE        |   /api/posts/:id         |   Deletes  Specific Post         |
 | GET           |   /api/posts/:id/user    |   Returns Specific User's Post   |
 | POST          |   /api/posts             |   Creates a post                 |
 | PUT           |   /api/posts/:id         |   Updates a post                 |

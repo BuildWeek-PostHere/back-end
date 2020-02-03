@@ -28,18 +28,20 @@ const authRouter = require('../auth/auth-router.js');
 // import post router
 const postRouter = require('../reddit_post/post-router.js');
 
+const restricted = require("../auth/restricted-middleware");
+
 // endpoint for users
-server.use('/api/users', usersRouter);
+server.use('/api/users', restricted, usersRouter);
 
 // endpoint for auth
 server.use('/api/auth', authRouter);
 
 // endpoint for posts
-server.use('/api/posts', postRouter);
+server.use('/api/posts', restricted, postRouter);
 
 
 server.get('/', (req, res) =>{
-    res.send("Hello my React friends from the server!");
+    res.send("<h1>Hello my React friends from the server!</h1>");
 })
 
 // export server

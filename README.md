@@ -4,7 +4,7 @@ Node.js back-end for Lambda School build week project PostHere
 # Overview
 This API is used as part of the application PostHere and allows for CRUD operations to be performed on both on the application's users.
 
-This documentation will cover all of the data models and endpoints which can be access via: Not Deployed yet
+This documentation will cover all of the data models and endpoints which can be access via: https://ordnajela.herokuapp.com/
 
 
 # Endpoints

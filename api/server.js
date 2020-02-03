@@ -31,7 +31,7 @@ const postRouter = require('../reddit_post/post-router.js');
 const restricted = require("../auth/restricted-middleware");
 
 // endpoint for users
-server.use('/api/users', restricted, usersRouter);
+server.use('/api/users', usersRouter);
 
 // endpoint for auth
 server.use('/api/auth', authRouter);

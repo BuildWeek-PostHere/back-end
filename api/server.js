@@ -39,7 +39,6 @@ server.use('/api/auth', authRouter);
 // endpoint for posts
 server.use('/api/posts', restricted, postRouter);
 
-
 server.get('/', (req, res) =>{
     res.send("<h1>Hello my React friends from the server!</h1>");
 })

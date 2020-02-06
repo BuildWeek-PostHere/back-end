@@ -1,8 +1,24 @@
 // import expres and create a router
 const router = require('express').Router();
 
+// import axios
+const axios = require('axios');
+
 // import users model
 const Post = require('./post-model.js');
+
+    // get sugestion
+    router.post('/subreddit', (req, res) => {
+
+        axios.post('https://better-post-here.herokuapp.com/api',{...req.body}) // JSON.stringify(req.body)
+        .then(response => {
+          res.status(200).json(response.data);
+        })
+        .catch(error => {
+            console.log(error)
+          res.status(500).json({ errorMessage: "Error getting sugestions", error: error });
+        });
+      });
 
 // create new post
 router.post('/', (req, res) =>{
@@ -119,4 +135,6 @@ router.put("/:id", (req, res) => {
         res.status(500).json({ message: 'Could not update post, server side error' });
       });
   });
+
+
 module.exports = router;
